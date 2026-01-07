@@ -56,7 +56,7 @@ def fetch_news_data(news_path) :
     appendixes=[]
 
     for appendixes_htm in appendixes_htms:
-        name=appendixes_htm.text[2:-5]
+        name=appendixes_htm.text[2:-4]
         ps=appendixes_htm.find("script").text[14:-1].split(',')
 
         api="https://jwch.fzu.edu.cn/system/resource/code/news/click/clicktimes.jsp"
@@ -75,7 +75,7 @@ def fetch_news_data(news_path) :
         dlurl=appendixes_htm.find('a').get('href')
         appendixes.append({
             "附件名":name,
-            "下载词数":dltime,
+            "下载次数":dltime,
             "链接码":dlurl
         })
 
